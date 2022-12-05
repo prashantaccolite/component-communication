@@ -1,3 +1,4 @@
+import { VendorService } from './vendor.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -15,6 +16,9 @@ import { BlockVendorComponent } from './block-vendor/block-vendor.component';
   imports: [
     CommonModule,
     VendorRoutingModule
+  ],
+  providers: [
+    VendorService //do this in app module??
   ]
 })
 export class VendorModule { }
