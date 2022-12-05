@@ -1,24 +1,31 @@
-<div *ngIf="details.id != 0">
-    <h6>Id</h6>
-    <p>{{details.id}}</p>
-    <h6>Name</h6>
-    <p>{{details.name}}</p>
-    <h6>Username</h6>
-    <p>{{details.username}}</p>
-    <h6>Email</h6>
-    <p>{{details.email}}</p>
-    <h6>Address</h6>
-    <p> street: {{details.address.street}}</p>
-    <p> suite: {{details.address.suite}}</p>
-    <p> city: {{details.address.city}}</p>
-    <p> zipcode: {{details.address.zipcode}}</p>
-    <p> lat: {{details.address.geo.lat}} long: {{details.address.geo.lng}}</p>
-    <h6>Phone</h6>
-    <p>{{details.phone}}</p>
-    <h6>Website</h6>
-    <p>{{details.website}}</p>
-    <h6>Company</h6>
-    <p> name: {{details.company.name}}</p>
-    <p> catchphrase: {{details.company.catchPhrase}}</p>
-    <p> bs: {{details.company.bs}}</p>
-</div>
+<dl *ngIf="details.id != 0" class="row">
+    <dt class="col-sm-3">Id</dt>
+    <dd class="col-sm-9">{{details.id}}</dd>
+    
+    <dt class="col-sm-3">Name</dt>
+    <dd class="col-sm-9">{{details.name}}</dd>
+
+    <dt class="col-sm-3">Username</dt>
+    <dd class="col-sm-9">{{details.username}}</dd>
+
+    <dt class="col-sm-3">Email</dt>
+    <dd class="col-sm-9">{{details.email}}</dd>
+
+    <dt class="col-sm-3">Address</dt>
+    <dd class="col-sm-9">
+        <p>{{details.address.street}} <br> 
+        {{details.address.suite}}<br>
+        {{details.address.zipcode}}<br>
+        {{details.address.city}}<br>
+        longitude: {{details.address.geo.lng}} latitude: {{details.address.geo.lat}}</p>
+    </dd>
+
+    <dt class="col-sm-3">Phone</dt>
+    <dd class="col-sm-9">{{details.phone}}</dd>
+
+    <dt class="col-sm-3">Website</dt>
+    <dd class="col-sm-9">{{details.website}}</dd>
+
+    <dt class="col-sm-3">Company</dt>
+    <dd class="col-sm-9">{{details.company.name}}</dd>
+</dl>
