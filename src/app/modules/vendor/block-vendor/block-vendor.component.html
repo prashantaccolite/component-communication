@@ -1,1 +1,12 @@
-<p>block-vendor works!</p>
+<div class="container">
+    <div *ngIf="vendorDisplay.name != ''" class="block-info" >
+        <h4>Vendor details</h4>
+        <div class="info">Name: {{vendorDisplay.name}} </div>
+        <div class="info">Age: {{vendorDisplay.age}} </div>
+        <div class="info">City: {{vendorDisplay.city}} </div>
+        <div *ngIf="shouldDisplayActiveButton">
+            <button (click)="navigateToActiveVendors()">Return to List of Vendors</button>
+        </div>
+    </div>
+    <div *ngIf="vendorDisplay.name === '' && shouldDisplayActiveButton">No vendor selected. Please navigate to <a href="/vendor/all">/vendor/all</a> OR <a href="/vendor/active">/vendor/active</a> to view all vendors.</div>
+</div>
