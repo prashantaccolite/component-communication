@@ -1,30 +1,15 @@
 # ComponentCommunication
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.0.
+You are given an angular project which consists of 3 components VendorComponent, ActiveVendorComponent and BlockVendorComponent. You need to create an array of objects(with properties name, age, city) in VendorComponent and display the same array in ActiveVendorComponent using plain html table. The table should contain 4 columns name, age, city and block where block column in each row should contain a button and on click of this button, the specific row should be displayed in BlockVendorComponent in table format with name, age, city columns.
 
-## How To Start
+At /vendor/all:
 
-1) Fork and Clone
-2) Run `npm i`
-3) Run `ng serve` and navigate to `http://localhost:4200/`
+<img src="https://user-images.githubusercontent.com/117354904/205747140-d47a0159-c0a9-4cbc-91b1-6ed8700b6b6d.png" width=50% height=50%>
 
-## Task 1
+At /vendor/active:
 
-1) We have to pass an array object(name, age, city) from parent to child
-    * Parent => vendor.component
-    * child => active-vendor.component
-2) At child component will get this data using `ngOnChanges`
-3) At child component will render this data in table using `plain-html-table`
-4) In table we will have 4 columns `name, age, city, block`
-5) Under `block` column, there will be a button (label = block) per row. after hit this button specipic row data will print under parent component (below a plain-html-table) 
+<img src="https://user-images.githubusercontent.com/117354904/205747311-d513a2d7-5270-4721-9037-bca527ac21ef.png" width=50% height=50%>
 
-## Task 2
+At vendor/block:
 
-1) We are already passing the data from parent to child
-3) After hit `block` button we have to also show that row data under `block-vendor` by using `subject/behaviorsubject`
-
-## Reference 
-
-[Icon Bootstrap](https://icons.getbootstrap.com/)
-
-[Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
+<img src="https://user-images.githubusercontent.com/117354904/205747369-7636b8a0-caec-49a3-af17-bde5996f484f.png" width=50% height=50%>
