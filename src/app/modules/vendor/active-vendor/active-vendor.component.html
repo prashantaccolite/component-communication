@@ -1,1 +1,13 @@
-<p>active vendor</p>
+<table>
+<tr>
+  <th>Name</th>
+  <th>Age</th>
+  <th>City</th>
+</tr>
+<tr *ngFor="let vendor of vendors;">
+  <th>{{vendor.name}}</th>
+  <th>{{vendor.age}}</th>
+  <th>{{vendor.city}}</th>
+  <th><button (click)="sendVendor(vendor)">send vendor</button></th>
+</tr>
+</table>
