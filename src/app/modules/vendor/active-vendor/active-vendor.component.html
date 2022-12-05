@@ -1,1 +1,25 @@
-<p>active vendor</p>
+<h4>Active Vendors!</h4>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Block</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vendor of activeVendors">
+                <th>{{ vendor.id }}</th>
+                <td>{{ vendor.name }}</td>
+                <td>{{ vendor.age }}</td>
+                <td>{{ vendor.city }}</td>
+                <td>
+                    <button type="button" (click)="blockVendor(vendor)">Block</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

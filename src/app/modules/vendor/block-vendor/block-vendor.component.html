@@ -1,1 +1,21 @@
-<p>block-vendor works!</p>
+<h4>Blocked Vendors!</h4>
+<div *ngIf="blockedVendors.length > 0">
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let vendor of blockedVendors">
+                <th>{{ vendor.id }}</th>
+                <td>{{ vendor.name }}</td>
+                <td>{{ vendor.age }}</td>
+                <td>{{ vendor.city }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
