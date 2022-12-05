@@ -1,1 +1,16 @@
-<p>active vendor</p>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Block</th>
+          </tr>
+          <tr *ngFor="let l of list">
+            <td>{{l.name}}</td>
+            <td>{{l.age}}</td>
+            <td>{{l.city}}</td>
+            <td><button (click)="onSelect(l)">block</button></td>
+          </tr>
+    </table>
+</div>

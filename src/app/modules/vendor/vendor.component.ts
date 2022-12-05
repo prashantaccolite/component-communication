@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Vendor } from 'src/app/vendor';
+import { VendorInputService } from 'src/app/vendor-input.service';
 
 @Component({
   selector: 'app-vendor',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorComponent implements OnInit {
 
-  constructor() { }
+  selectedVendor:Vendor = {} as Vendor
+  constructor(private vInput:VendorInputService) { }
 
   ngOnInit(): void {
+    this.vInput.source.subscribe((d)=>{
+      this.selectedVendor=d
+    })
   }
+
+
 
 }
