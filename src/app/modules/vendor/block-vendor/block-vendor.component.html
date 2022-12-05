@@ -1,1 +1,7 @@
 <p>block-vendor works!</p>
+<div *ngIf="vendor.name != ''" class="block-info" >
+    <h4>Vendor details</h4>
+    <div class="info">Name: {{vendor.name}} </div>
+    <div class="info">Age: {{vendor.age}} </div>
+    <div class="info">City: {{vendor.city}} </div>
+</div>

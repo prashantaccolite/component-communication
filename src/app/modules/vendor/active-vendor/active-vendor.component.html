@@ -1,1 +1,22 @@
 <p>active vendor</p>
+
+<table class="table-vendors">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>View</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vendor of vendors">
+           <td>{{vendor.name}}</td> 
+           <td>{{vendor.age}}</td> 
+           <td>{{vendor.city}}</td> 
+           <td>
+                <button class="view-btn" (click)="onClick(vendor)">View</button>
+           </td> 
+        </tr>
+    </tbody>
+</table>

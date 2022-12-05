@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Vendor } from 'src/app/model/vendor';
 
 @Component({
   selector: 'app-block-vendor',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlockVendorComponent implements OnInit {
 
-  constructor() { }
+  @Input() vendor : Vendor = new Vendor();
+
+  constructor() {}
 
   ngOnInit(): void {
   }
+
+
 
 }
