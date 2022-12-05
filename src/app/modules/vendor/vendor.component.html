@@ -2,11 +2,19 @@
     <div class="row">
         <div class="col-md-6">
             <h1>Parent Component</h1>
-            <app-active-vendor></app-active-vendor>
+            <app-active-vendor [activeVendors]="activeVendors" (blockedVendor)="blockVendor($event)"></app-active-vendor>
+        
+            <div *ngIf="blockedVendor" >
+                <div style="font-weight: bold;"> Blocked Vendor Details </div>
+                id - {{blockedVendor.id}} <br>
+                name - {{blockedVendor.name}} <br>
+                age - {{blockedVendor.age}} <br>
+                city - {{blockedVendor.city}} <br>
+            </div>
         </div>
         <div class="col-md-6">
             <h1>Block Vendor</h1>
-            <app-block-vendor></app-block-vendor>
+            <app-block-vendor [blockedVendors]="blockedVendors"></app-block-vendor>
         </div>
     </div>
 </div>

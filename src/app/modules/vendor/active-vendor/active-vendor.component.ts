@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Vendor } from '../vendor';
+import { VendorService } from '../vendor.service';
+
 
 @Component({
   selector: 'app-active-vendor',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActiveVendorComponent implements OnInit {
 
-  constructor() { }
+  constructor(private vendorService:VendorService) { }
 
   ngOnInit(): void {
+  }
+
+  @Input() activeVendors? :Vendor[];
+  @Output() blockedVendor = new EventEmitter<Vendor>();
+
+  blockVendor(vendor:Vendor):void{
+     this.blockedVendor.emit(vendor); 
+
   }
 
 }
