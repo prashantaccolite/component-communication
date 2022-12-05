@@ -1,46 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
+import { GetVendorsService } from 'src/app/modules/vendor/GetVendorsService';
+import { UpdatorService } from '../vendor-update.service';
 
 @Component({
   selector: 'app-active-vendor',
   templateUrl: './active-vendor.component.html',
   styleUrls: ['./active-vendor.component.scss']
 })
+@Injectable()
 export class ActiveVendorComponent implements OnInit {
   vendors:any;
-  constructor() { }
+  constructor(private vendorsService:GetVendorsService,
+              private vendorUpdateService:UpdatorService) {}
 
-  sendVendor(vendorObject:any) {
-    console.log(vendorObject);
+  sendVendor(vendor:any) {
+    this.vendorUpdateService.SendVendor(vendor);
   }
-
   ngOnInit(): void {
-    this.vendors = [
-      {
-        "name": "vend1",
-        "age": 40,
-        "city": "city1",
-      },
-      {
-      "name": "vend2",
-      "age": 41,
-      "city": "city2",
-      },
-      {
-        "name": "vend3",
-        "age": 43,
-        "city": "city3",
-      },
-      {
-        "name": "vend4",
-        "age": 39,
-        "city": "city4",
-      },
-      {
-        "name": "vend5",
-        "age": 37,
-        "city": "city5",
-      },
-  ];
+    this.vendors = this.vendorsService.vendors();
   }
 
 }
