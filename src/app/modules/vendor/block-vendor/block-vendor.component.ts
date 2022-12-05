@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { VendorService } from 'src/app/services/vendor.service';
+import { ActiveVendorComponent } from '../active-vendor/active-vendor.component';
+
+export interface person{
+  name:string,
+  age:number,
+  city:string
+}
 
 @Component({
   selector: 'app-block-vendor',
@@ -7,9 +15,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlockVendorComponent implements OnInit {
 
+  @Input() details!: person;
+
   constructor() { }
 
   ngOnInit(): void {
+  
   }
 
 }

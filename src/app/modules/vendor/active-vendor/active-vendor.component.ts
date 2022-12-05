@@ -1,4 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { VendorService } from 'src/app/services/vendor.service';
+import { VendorComponent } from '../vendor.component';
+
+export interface person{
+  name:string,
+  age:number,
+  city:string
+}
 
 @Component({
   selector: 'app-active-vendor',
@@ -7,9 +15,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActiveVendorComponent implements OnInit {
 
-  constructor() { }
+  @Output() selectPerson = new EventEmitter<person>();
+
+  constructor(private service: VendorService) { }
+
+  @Input() people!: person[];
 
   ngOnInit(): void {
+      
+  }
+
+  showDetails(p: person): void {
+      this.selectPerson.emit(p);
   }
 
 }
