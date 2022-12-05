@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VendorService } from './vendor.service';
+import { VendorModel } from './vendor-model';
 
 @Component({
   selector: 'app-vendor',
@@ -7,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorComponent implements OnInit {
 
-  constructor() { }
+  blockedVendor?:VendorModel;
+
+  recieveBlockVendorData(vendor:VendorModel){
+    this.blockedVendor=vendor;
+    
+  }
+
+  constructor(private vendorService:VendorService) { }
+
+  vendorList=this.vendorService.vendors;
 
   ngOnInit(): void {
   }

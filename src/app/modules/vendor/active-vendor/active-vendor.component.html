@@ -1,1 +1,14 @@
-<p>active vendor</p>
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+      <th>Block</th>
+    </tr>
+    <tr *ngFor="let vendor of vendorList; index as i">
+      <td>{{vendor.name}}</td>
+      <td>{{vendor.age}}</td>
+      <td>{{vendor.city}}</td>
+      <td><button (click)="displayThisInParent(vendor); displayThisInBlock(vendor)">Block</button></td>
+    </tr>
+  </table>
