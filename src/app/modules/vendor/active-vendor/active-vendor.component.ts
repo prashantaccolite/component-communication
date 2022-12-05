@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
-import { VendorComponent } from '../vendor.component';
 import { PassToBlockService } from 'src/app/pass-to-block.service';
+import { VendorComponent } from '../vendor.component';
 
 @Component({
   selector: 'app-active-vendor',
@@ -11,13 +11,9 @@ import { PassToBlockService } from 'src/app/pass-to-block.service';
 export class ActiveVendorComponent implements OnInit {
   people: { name: string; age: string; city: string }[] = [];
 
-  nameToChild='';
-  ageToChild='';
-  cityToChild='';
-
   constructor(
     private vendorComponent: VendorComponent,
-    private passService: PassToBlockService,
+    private passToBlock: PassToBlockService,
   ) {}
 
   ngOnInit(): void {
@@ -25,8 +21,6 @@ export class ActiveVendorComponent implements OnInit {
   }
 
   displayPerson(person: any) {
-    this.nameToChild= person.name;
-    this.ageToChild= person.age;
-    this.cityToChild = person.city;
+    this.passToBlock.setSelectedPerson(person);
   }
 }

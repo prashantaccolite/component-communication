@@ -1,37 +1,22 @@
 import { Injectable } from '@angular/core';
+import { Subject, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PassToBlockService {
+  private person!: any;
+  private subject = new Subject<any>();
 
   constructor() { }
 
-  name= "AAA";
-  age= "AAA";
-  city= "AAA";
-
-  getName(){
-    return this.name;
-  }
-  
-  setName(name: string){
-    this.name = name;
+  setSelectedPerson(person: any){
+    this.person = person;
+    this.subject.next(this.person);
   }
 
-  getAge(){
-    return this.age;
-  }
-  
-  setAge(age: string){
-    this.age = age;
+  displaySelectedPerson(){
+    return this.subject.asObservable();
   }
 
-  getCity(){
-    return this.city;
-  }
-  
-  setCity(city: string){
-    this.city = city;
-  }
 }
