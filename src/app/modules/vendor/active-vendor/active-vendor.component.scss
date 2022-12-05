@@ -1,5 +1,12 @@
 .view-btn {
     border: 2px solid black;
     border-radius: 25px;
-
 }
+
+.container{
+    margin:10px;
+}
+
+tr > * + * {
+    padding-left: 2em;
+  }

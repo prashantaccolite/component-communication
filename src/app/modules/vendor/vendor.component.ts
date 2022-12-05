@@ -43,13 +43,13 @@ export class VendorComponent implements OnInit {
     this.vendorsService.getVendorsDetails().subscribe(result => {
       this.jsonVendorsDetailsFromAPI = result;
       this.cleanVendorDetails = this.vendorsService.cleanVendorsDetails(this.jsonVendorsDetailsFromAPI);
-      console.log(this.cleanVendorDetails);
+      // console.log(this.cleanVendorDetails);
     });
   }
 
   displayVendor(vendorClicked: Vendor){
     this.vendorDisplay = vendorClicked;
-    console.log(this.vendorDisplay);
+    // console.log(this.vendorDisplay);
     
   }
 

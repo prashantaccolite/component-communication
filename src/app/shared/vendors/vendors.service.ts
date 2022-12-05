@@ -6,6 +6,7 @@ import { Vendor } from 'src/app/model/vendor';
   providedIn: 'root'
 })
 export class VendorsService {
+  _vendorDisplay : Vendor = new Vendor();
 
   constructor(private http: HttpClient) { }
 
@@ -27,5 +28,13 @@ export class VendorsService {
       cleanData.push(vendor);
     });
     return cleanData;
+  }
+
+  setVendorToDiplay(vendorDetail:Vendor){
+    this._vendorDisplay = vendorDetail;
+  }
+
+  getVendorToDisplay():Vendor{
+    return this._vendorDisplay;
   }
 }

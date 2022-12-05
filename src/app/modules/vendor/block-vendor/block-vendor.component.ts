@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Vendor } from 'src/app/model/vendor';
+import { ROUTING } from 'src/app/shared/constants/routing.constant';
+import { VendorsService } from 'src/app/shared/vendors/vendors.service';
 
 @Component({
   selector: 'app-block-vendor',
@@ -8,12 +11,27 @@ import { Vendor } from 'src/app/model/vendor';
 })
 export class BlockVendorComponent implements OnInit {
 
-  vendorDisplay = new Vendor();
+  vendorDisplay: Vendor = new Vendor;
+  shouldDisplayActiveButton : boolean = false;
   @Input() vendor : Vendor = new Vendor();
 
-  constructor() {}
+  constructor(private router : Router, private vendorService : VendorsService) {}
 
   ngOnInit(): void {
-    this.vendorDisplay = this.vendor;
+    if (this.router.url === `/${ROUTING.VENDOR}/${ROUTING.BLOCK}`){
+      this.vendorDisplay = this.vendorService.getVendorToDisplay();
+      this.shouldDisplayActiveButton = true;
+    } else {
+      this.shouldDisplayActiveButton = false;
+    }
+  }
+
+  ngOnChanges(vendorDetail: any) {
+    this.vendorDisplay = vendorDetail.vendor.currentValue;
+    console.log(this.vendorDisplay);
+  }
+
+  navigateToActiveVendors(){
+    this.router.navigate([`/${ROUTING.VENDOR}/${ROUTING.ACTIVE}`]);
   }
 }
