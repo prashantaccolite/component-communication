@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VendorServiceService } from 'src/app/vendor-service.service';
+import { VendorComponent } from '../vendor.component';
 
 @Component({
   selector: 'app-block-vendor',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./block-vendor.component.scss']
 })
 export class BlockVendorComponent implements OnInit {
+  
+  
+  Vendors: any;
 
-  constructor() { }
+  constructor(private vendorService:VendorServiceService) { }
 
   ngOnInit(): void {
+      this.vendorService.blockVendor.subscribe((vendor: any) =>{
+        this.Vendors=vendor;
+      })
   }
-
 }
+

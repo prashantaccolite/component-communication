@@ -1,1 +1,15 @@
 <p>active vendor</p>
+<table>
+    <tr>
+        <th><b>NAME</b></th>
+        <th><b>AGE</b></th>
+        <th><b>CITY</b></th>
+    </tr>
+    <tr *ngFor="let vendor of Vendors">
+        <td>{{vendor.name}}</td>
+        <td>{{vendor.age}}</td>
+        <td>{{vendor.city}}</td>
+        <td><button (click)="displayBlockedVendor(vendor)">Block</button></td>
+    </tr>
+</table>
+
