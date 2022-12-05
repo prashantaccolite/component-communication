@@ -1,1 +1,17 @@
-<p>block-vendor works!</p>
+<h5>Blocked Vendors</h5>
+<table>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>City</th>
+      <th>Block</th>
+    </tr>
+    <tr *ngFor = "let vendor of blockedVendors">
+      <td>{{vendor.name}}</td>
+      <td>{{vendor.age}}</td>
+      <td>{{vendor.city}}</td>
+      <td><button (click)="sendUnblockedToParents(vendor)">Unblock</button></td>
+    </tr>
+  </table>
+
+ 

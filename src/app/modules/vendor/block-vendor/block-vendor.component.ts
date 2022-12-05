@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Vendor } from '../vendor';
+import { VendorService } from '../vendor.service';
 
 @Component({
   selector: 'app-block-vendor',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlockVendorComponent implements OnInit {
 
-  constructor() { }
+  @Input() blockedVendors ?: Vendor[]
+  blockedVendor ?: Vendor
+  constructor(private vendorService : VendorService) { }
 
   ngOnInit(): void {
+    this.vendorService.sendDetail.subscribe(blockedVendor =>{this.blockedVendor = blockedVendor})
   }
 
+  sendUnblockedToParents(blockedVendor : Vendor){
+    this.vendorService.sendUnBlockedtoParents(blockedVendor);
+  }
 }
