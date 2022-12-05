@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Vendor } from '../vendor';
 import { VendorService } from '../vendor.service';
 
@@ -22,5 +22,9 @@ export class ActiveVendorComponent implements OnInit {
      this.blockedVendor.emit(vendor); 
 
   }
+
+  // ngOnChanges(changes: SimpleChanges):void{
+  //   changes
+  // }
 
 }

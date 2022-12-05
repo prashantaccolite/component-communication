@@ -36,7 +36,10 @@ export class VendorService {
 
   setBlockedVendors(blockedVendor:Vendor){
     this.blockedVendors.push(blockedVendor);
-    // this.setActiveVendors(this.activeVendors.filter( activeVendor => activeVendor.id != blockedVendor.id));
+    const index = this.activeVendors.indexOf(blockedVendor);
+    if (index > -1) { 
+      this.activeVendors.splice(index, 1); 
+    }
     this.vendorobs.next(this.blockedVendors);
   }
 
