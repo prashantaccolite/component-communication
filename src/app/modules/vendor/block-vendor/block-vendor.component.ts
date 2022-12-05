@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Vendor } from '../vendor';
 import { VendorService } from '../vendor.service';
 
@@ -9,6 +9,7 @@ import { VendorService } from '../vendor.service';
 })
 export class BlockVendorComponent implements OnInit {
 
+  @Input() blockedVendors ?: Vendor[]
   blockedVendor ?: Vendor
   constructor(private vendorService : VendorService) { }
 
@@ -16,4 +17,7 @@ export class BlockVendorComponent implements OnInit {
     this.vendorService.sendDetail.subscribe(blockedVendor =>{this.blockedVendor = blockedVendor})
   }
 
+  sendUnblockedToParents(blockedVendor : Vendor){
+    this.vendorService.sendUnBlockedtoParents(blockedVendor);
+  }
 }

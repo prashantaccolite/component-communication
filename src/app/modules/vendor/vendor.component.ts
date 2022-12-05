@@ -15,7 +15,7 @@ export class VendorComponent implements OnInit {
 
   }
   vendorsList = this.vendorService.vendors
-
+  blockedVendorsList = this.vendorService.blockedVendors
   blockedVendor ?: Vendor
   displayBlockedVendor(selectedVendor : Vendor){
     this.blockedVendor = selectedVendor
