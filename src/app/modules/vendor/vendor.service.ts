@@ -13,6 +13,19 @@ export class VendorService {
     this.blockVendor.next(v);
   }
 
+  moveFromActiveToBlocked(vendor:VendorModel){
+    // console.log("--------------");
+    let index=this.vendors.indexOf(vendor);
+    this.vendors.splice(index,1);
+    this.blockedVendors.push(vendor);
+  }
+
+  moveFromBlockedToActive(vendor:VendorModel){
+    let index=this.blockedVendors.indexOf(vendor);
+    this.blockedVendors.splice(index,1);
+    this.vendors.push(vendor);
+  }
+
   //blockVendors$ = new Subject<VendorModel>()
 
   vendors:VendorModel[]=[
@@ -32,6 +45,8 @@ export class VendorService {
       city:"Kolkata" 
     }
   ]
+
+  blockedVendors:VendorModel[]=[];
 
   constructor() { 
     //this.blockVendors$.next(vendor:VendorModel)

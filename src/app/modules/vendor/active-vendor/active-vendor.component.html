@@ -9,6 +9,8 @@
       <td>{{vendor.name}}</td>
       <td>{{vendor.age}}</td>
       <td>{{vendor.city}}</td>
-      <td><button (click)="displayThisInParent(vendor); displayThisInBlock(vendor)">Block</button></td>
+      <td><button (click)="displayThisInParent(vendor); moveFromActiveToBlocked(vendor)">Block</button></td>
     </tr>
   </table>
+
+  <!-- displayThisInBlock(vendor); -->

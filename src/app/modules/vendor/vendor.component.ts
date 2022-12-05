@@ -20,6 +20,8 @@ export class VendorComponent implements OnInit {
 
   vendorList=this.vendorService.vendors;
 
+  blockedVendorList=this.vendorService.blockedVendors;
+
   ngOnInit(): void {
   }
 

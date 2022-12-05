@@ -11,27 +11,33 @@ import { VendorModel } from '../vendor-model';
 })
 export class ActiveVendorComponent implements OnInit,OnChanges {
 
-  @Input() vendorList?:VendorModel[];
+  constructor(private vendorService: VendorService) { }
 
-  @Output() blockVendorData =new EventEmitter();
+  ngOnInit(): void {
+    //emit here?
+  }
+
+  @Input() vendorList?:VendorModel[]; //recieieving from parent
+
+  @Output() blockVendorData =new EventEmitter(); //emitting to parent
 
   displayThisInParent(vendor:VendorModel){
     console.log(vendor.name+"From Parent calling Function");
     this.blockVendorData.emit(vendor);
   }
 
-  displayThisInBlock(vendor:VendorModel){
-    
+  // displayThisInBlock(vendor:VendorModel){
+  //   //console.log("WORKING");
+  //   console.log(vendor.name);
+  // }
+
+  moveFromActiveToBlocked(vendor:VendorModel){
     this.vendorService.sendBlockVendor(vendor);
     console.log(vendor.name);
-
+    this.vendorService.moveFromActiveToBlocked(vendor);
   }
 
-  constructor(private vendorService: VendorService) { }
-
-  ngOnInit(): void {
-    //emit here?
-  }
+ 
 
   ngOnChanges(changes: SimpleChanges):void{
       //WHY
