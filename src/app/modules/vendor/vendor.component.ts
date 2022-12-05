@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VendorService } from './vendor.service';
 
 @Component({
   selector: 'app-vendor',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vendor.component.scss']
 })
 export class VendorComponent implements OnInit {
+  vendors: { name: string; age: number; city: string; }[];
 
-  constructor() { }
-
+  
+  constructor(service: VendorService) {
+    this.vendors = service.vendors;
+  }
+  
   ngOnInit(): void {
   }
 
+  blockedVendor ?: any;
+  displayBlockedVendor(selectedVendor : any){
+    this.blockedVendor = selectedVendor;
+  }
 }

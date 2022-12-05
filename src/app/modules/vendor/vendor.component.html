@@ -2,7 +2,10 @@
     <div class="row">
         <div class="col-md-6">
             <h1>Parent Component</h1>
-            <app-active-vendor></app-active-vendor>
+            <app-active-vendor [vendors]="vendors" (newBlockEvent) = "displayBlockedVendor($event)"></app-active-vendor>
+            <h6 *ngIf = "blockedVendor">
+                Name:{{blockedVendor.name}} Age:{{blockedVendor.age}} City:{{blockedVendor.city}}
+            </h6>
         </div>
         <div class="col-md-6">
             <h1>Block Vendor</h1>
