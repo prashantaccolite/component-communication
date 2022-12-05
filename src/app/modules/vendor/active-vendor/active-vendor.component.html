@@ -1,1 +1,17 @@
 <p>active vendor</p>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+    </tr>
+    <tr *ngFor="let person of people">
+        <td>{{person.name}}</td>
+        <td>{{person.age}}</td>
+        <td>{{person.city}}</td>
+        <td>
+            <button (click)="showDetails(person)">View Details</button>
+        </td>
+    </tr>
+</table>
