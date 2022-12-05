@@ -8,13 +8,12 @@ import { Vendor } from 'src/app/model/vendor';
 })
 export class BlockVendorComponent implements OnInit {
 
+  vendorDisplay = new Vendor();
   @Input() vendor : Vendor = new Vendor();
 
   constructor() {}
 
   ngOnInit(): void {
+    this.vendorDisplay = this.vendor;
   }
-
-
-
 }
