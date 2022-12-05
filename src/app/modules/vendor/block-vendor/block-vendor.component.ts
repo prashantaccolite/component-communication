@@ -17,4 +17,11 @@ export class BlockVendorComponent implements OnInit {
       //console.log(this.blockedVendor);
     })
   }
+
+  unblockVendor(vendor:any){
+    this.vendorS.blockToUnblock(vendor);
+    let index=this.blockedVendor.indexOf(vendor);
+    this.blockedVendor.splice(index, 1);
+  }
+
 }

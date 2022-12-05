@@ -25,7 +25,10 @@ export class VendorService{
     console.log(this.vendors);
   }
 
-  // blockToUnblock(ven:any){
-    
-  // }
+  blockToUnblock(ven:any){
+    this.vendors.push(ven);
+    let index=this.userBlocked.indexOf(ven);
+    this.userBlocked.splice(index, 1);
+    console.log(this.userBlocked);
+  }
 }
