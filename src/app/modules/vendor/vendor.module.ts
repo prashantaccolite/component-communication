@@ -17,4 +17,5 @@ import { BlockVendorComponent } from './block-vendor/block-vendor.component';
     VendorRoutingModule
   ]
 })
-export class VendorModule { }
+export class VendorModule {
+ }
