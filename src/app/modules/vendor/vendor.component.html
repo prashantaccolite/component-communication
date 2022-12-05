@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-6">
             <h1>Parent Component</h1>
-            <app-active-vendor [activeVendors]="activeVendors" (blockedVendor)="blockVendor($event)"></app-active-vendor>
+            <app-active-vendor [activeVendors]="activeVendors" (blockedVendor)="blockVendorBlock($event); blockVendorsTable($event)"></app-active-vendor>
         
             <div *ngIf="blockedVendor" >
                 <div style="font-weight: bold;"> Blocked Vendor Details </div>

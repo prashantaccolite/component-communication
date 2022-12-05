@@ -36,9 +36,8 @@ export class VendorService {
 
   setBlockedVendors(blockedVendor:Vendor){
     this.blockedVendors.push(blockedVendor);
-    this.setActiveVendors(this.activeVendors.filter( activeVendor => activeVendor.id != blockedVendor.id));
-    console.log("settt");
-    console.log(this.activeVendors);
+    // this.setActiveVendors(this.activeVendors.filter( activeVendor => activeVendor.id != blockedVendor.id));
+    this.vendorobs.next(this.blockedVendors);
   }
 
 }

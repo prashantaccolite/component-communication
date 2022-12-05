@@ -15,8 +15,12 @@ export class VendorComponent implements OnInit {
   blockedVendors: Vendor[] = this.vendorService.getBlockedVendors();
   blockedVendor: Vendor;
 
-  blockVendor(blockedVendor:Vendor){
+  blockVendorBlock(blockedVendor:Vendor){
     this.blockedVendor = blockedVendor;
+  }
+
+  blockVendorsTable(blockedVendor:Vendor){
+    this.vendorService.setBlockedVendors(blockedVendor);
   }
   
   ngOnInit(): void {
