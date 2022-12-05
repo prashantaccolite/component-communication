@@ -1,1 +1,21 @@
-<p>active vendor</p>
+<div>
+    <table>
+        <div>
+            <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>City</th>
+            <th>Button</th>
+
+        </tr>
+        <tr *ngFor="let vendor of vendorList">
+            <td>{{vendor.name}}</td>
+            <td>{{vendor.age}}</td>
+            <td>{{vendor.city}}</td>
+            <td align='center'><button (click)="onSelect(vendor)">Click</button>
+            </td>
+          </tr>
+        </div>
+
+    </table>
+</div>
