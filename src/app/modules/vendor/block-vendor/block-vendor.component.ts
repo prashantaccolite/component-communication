@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Vendor } from 'src/app/vendor';
+import { VendorInputService } from 'src/app/vendor-input.service';
 
 @Component({
   selector: 'app-block-vendor',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlockVendorComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private vInput:VendorInputService) { }
+  selectedVendor!:Vendor
   ngOnInit(): void {
+    this.vInput.source.subscribe((d)=>{
+      this.selectedVendor=d
+    })
   }
 
 }
