@@ -4,7 +4,7 @@
             <h1>Parent Component</h1>
             <app-active-vendor [vendors]="vendors" (newBlockEvent) = "displayBlockedVendor($event)"></app-active-vendor>
             <h6 *ngIf = "blockedVendor">
-                Name:{{blockedVendor.name}} Age:{{blockedVendor.age}} City:{{blockedVendor.city}}
+                Blocked User --> Name:{{blockedVendor.name}} Age:{{blockedVendor.age}} City:{{blockedVendor.city}}
             </h6>
         </div>
         <div class="col-md-6">

@@ -13,13 +13,14 @@ export class ActiveVendorComponent implements OnChanges {
 
   ngOnChanges(): void {
   }
-  selectedVendor ?: any;
-
-  constructor(private vendorS : VendorService){}
-
+  userBlocked:any = [];
+  constructor(private vendorS : VendorService){
+    this.userBlocked = vendorS.userBlocked;
+  }
+  
   displayBlockedVendor(vendor:any){
-    this.selectedVendor = vendor
     this.newBlockEvent.emit(vendor);
     this.vendorS.sendBlockedVendor(vendor);
+    this.vendorS.unblockToBlock(vendor);
   }
 }

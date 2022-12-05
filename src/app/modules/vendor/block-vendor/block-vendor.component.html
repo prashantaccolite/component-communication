@@ -1,5 +1,20 @@
 <h5>BLOCKED VENDOR</h5>
 
-<h6>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Status</th>
+    </tr>
+    <tr *ngFor="let vendor of blockedVendor">
+        <td>{{vendor.name}}</td>
+        <td>{{vendor.age}}</td>
+        <td>{{vendor.city}}</td>
+        <td><button>Unblock</button></td>
+    </tr>
+</table>
+
+<!-- <h6>
     Name: {{blockedVendor.name}} Age: {{blockedVendor.age}} City: {{blockedVendor.city}}
-</h6>
+</h6> -->
