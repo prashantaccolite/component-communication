@@ -1,11 +1,33 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { VendorService } from 'src/app/services/vendor.service';
-import { VendorComponent } from '../vendor.component';
+import { Component, OnInit, Input } from '@angular/core';
 
 export interface person{
   name:string,
   age:number,
   city:string
+}
+
+export interface user{
+  id:number,
+  name:string,
+  username:string,
+  email:string,
+  address: {
+      street:string,
+      suite: string,
+      city: string,
+      zipcode: string,
+      geo: {
+        lat: number,
+        lng: number
+      }
+    },
+    phone: string,
+    website: string,
+    company: {
+      name: string,
+      catchPhrase: string,
+      bs: string
+    }
 }
 
 @Component({
@@ -15,18 +37,32 @@ export interface person{
 })
 export class ActiveVendorComponent implements OnInit {
 
-  @Output() selectPerson = new EventEmitter<person>();
+  @Input() details!: user;
 
-  constructor(private service: VendorService) { }
-
-  @Input() people!: person[];
+  constructor() { }
 
   ngOnInit(): void {
-      
-  }
-
-  showDetails(p: person): void {
-      this.selectPerson.emit(p);
+    this.details = {id:0,
+    name:"",
+    username:"",
+    email:"string",
+    address: {
+        street:"string",
+        suite: "string",
+        city: "string",
+        zipcode: "string",
+        geo: {
+          lat: 0,
+          lng: 0
+        }
+      },
+      phone: "",
+      website: "",
+      company: {
+        name: "",
+        catchPhrase: "",
+        bs: ""
+      }};
   }
 
 }

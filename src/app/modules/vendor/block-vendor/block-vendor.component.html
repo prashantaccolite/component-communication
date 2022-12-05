@@ -1,14 +1,15 @@
-<p>block-vendor works!</p>
-
 <table>
     <tr>
         <th>Name</th>
-        <th>Age</th>
+        <th>Id</th>
         <th>City</th>
     </tr>
-    <tr>
-        <td>{{details.name}}</td>
-        <td>{{details.age}}</td>
-        <td>{{details.city}}</td>
+    <tr *ngFor="let person of users">
+        <td>{{person.name}}</td>
+        <td>{{person.id}}</td>
+        <td>{{person.address.city}}</td>
+        <td>
+            <button (click)="showDetails(person)">View Details</button>
+        </td>
     </tr>
 </table>

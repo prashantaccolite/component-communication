@@ -1,27 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-export interface address{
-  street:string,
-  suite:string,
-  city:string,
-  zipcode:string
-  geo:{ lat:number,
-        lng:number }
+export interface person{
+  name:string,
+  age:number,
+  city:string
 }
 export interface user{
-  name:string,
   id:number,
-  city:string,
+  name:string,
   username:string,
-  address:address,
-  email:string
-  phone:string,
-  website:string,
-  company: {
-      name:string,
-      catchPhrase:string,
-      bs:string }
+  email:string,
+  address: {
+      street:string,
+      suite: string,
+      city: string,
+      zipcode: string,
+      geo: {
+        lat: number,
+        lng: number
+      }
+    },
+    phone: string,
+    website: string,
+    company: {
+      name: string,
+      catchPhrase: string,
+      bs: string
+    }
 }
 
 @Injectable({
@@ -31,8 +37,14 @@ export class VendorService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getUsers() {
+  getUsers(){
     return this.httpClient.get('https://jsonplaceholder.typicode.com/users');
+  }
+
+  getLocalData(): person[]{
+    return [{name: "Anna",age: 30, city: "Singapore"},
+    {name:"Bob",age:28,city:"New York"},
+    {name:"Catherine",age:22,city:"Tokyo"}];
   }
   
 }

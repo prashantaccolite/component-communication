@@ -1,11 +1,33 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { VendorService } from 'src/app/services/vendor.service';
-import { ActiveVendorComponent } from '../active-vendor/active-vendor.component';
 
 export interface person{
   name:string,
   age:number,
   city:string
+}
+export interface user{
+  id:number,
+  name:string,
+  username:string,
+  email:string,
+  address: {
+      street:string,
+      suite: string,
+      city: string,
+      zipcode: string,
+      geo: {
+        lat: number,
+        lng: number
+      }
+    },
+    phone: string,
+    website: string,
+    company: {
+      name: string,
+      catchPhrase: string,
+      bs: string
+    }
 }
 
 @Component({
@@ -15,12 +37,22 @@ export interface person{
 })
 export class BlockVendorComponent implements OnInit {
 
-  @Input() details!: person;
+  constructor(private service: VendorService) { }
 
-  constructor() { }
+  people:person[] = [];
+  users!:user[];
+
+  @Output() selectPerson = new EventEmitter<user>();
 
   ngOnInit(): void {
-  
+    this.service.getUsers().subscribe(
+      (data:any)=> {this.users = data;}
+      );
+    this.people = this.service.getLocalData();
+  }
+
+  showDetails(p: user): void {
+      this.selectPerson.emit(p);
   }
 
 }

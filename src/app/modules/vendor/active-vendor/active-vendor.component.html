@@ -1,17 +1,24 @@
-<p>active vendor</p>
-
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>City</th>
-    </tr>
-    <tr *ngFor="let person of people">
-        <td>{{person.name}}</td>
-        <td>{{person.age}}</td>
-        <td>{{person.city}}</td>
-        <td>
-            <button (click)="showDetails(person)">View Details</button>
-        </td>
-    </tr>
-</table>
+<div *ngIf="details.id != 0">
+    <h6>Id</h6>
+    <p>{{details.id}}</p>
+    <h6>Name</h6>
+    <p>{{details.name}}</p>
+    <h6>Username</h6>
+    <p>{{details.username}}</p>
+    <h6>Email</h6>
+    <p>{{details.email}}</p>
+    <h6>Address</h6>
+    <p> street: {{details.address.street}}</p>
+    <p> suite: {{details.address.suite}}</p>
+    <p> city: {{details.address.city}}</p>
+    <p> zipcode: {{details.address.zipcode}}</p>
+    <p> lat: {{details.address.geo.lat}} long: {{details.address.geo.lng}}</p>
+    <h6>Phone</h6>
+    <p>{{details.phone}}</p>
+    <h6>Website</h6>
+    <p>{{details.website}}</p>
+    <h6>Company</h6>
+    <p> name: {{details.company.name}}</p>
+    <p> catchphrase: {{details.company.catchPhrase}}</p>
+    <p> bs: {{details.company.bs}}</p>
+</div>
