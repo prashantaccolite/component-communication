@@ -1,1 +1,15 @@
-<p>active vendor</p>
+<table style = "width: 100%;">
+<tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>City</th>
+    <th>Block</th>
+</tr>
+<tr *ngFor = "let vendor of vendors;let i = index">
+    <td>{{vendor.name}}</td>
+    <td>{{vendor.age}}</td>
+    <td>{{vendor.city}}</td>
+    <td><button type = "submit" (click) = "onBlockVendor(vendor)">Block</button></td>
+</tr>
+
+</table>
