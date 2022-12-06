@@ -2,11 +2,27 @@
     <div class="row">
         <div class="col-md-6">
             <h1>Parent Component</h1>
-            <app-active-vendor></app-active-vendor>
+            <table style = "width: 100%;">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+                <tr *ngFor = "let vendor of blockedVendorList">
+                    <td>{{vendor.name}}</td>
+                    <td>{{vendor.age}}</td>
+                    <td>{{vendor.city}}</td>
+                </tr>
+                </table>
+            <h1>Active Component</h1>
+            <app-active-vendor (emitVendor) = "onBlockClick($event)" [vendors] = "vendors"></app-active-vendor>
         </div>
+        
         <div class="col-md-6">
             <h1>Block Vendor</h1>
-            <app-block-vendor></app-block-vendor>
+            <app-block-vendor ></app-block-vendor>
         </div>
     </div>
 </div>
+
+

@@ -1,1 +1,12 @@
-<p>block-vendor works!</p>
+<table style = "width: 100%;">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+    </tr>
+    <tr *ngFor = "let blockedvendor of blockedVendors">
+        <td>{{blockedvendor.name}}</td>
+        <td>{{blockedvendor.age}}</td>
+        <td>{{blockedvendor.city}}</td>
+    </tr>
+    </table>
