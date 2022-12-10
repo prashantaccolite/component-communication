@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { VendorServiceService } from 'src/app/vendor-service.service';
+import { Vendors } from 'src/app/vendors';
+
 
 @Component({
   selector: 'app-active-vendor',
@@ -6,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./active-vendor.component.scss']
 })
 export class ActiveVendorComponent implements OnInit {
+  @Input()
+  vendor!: Vendors[]; //changed
+  //vendor!: any[]; 
+  @Output()
+  vendorArr= new EventEmitter<Vendors>();
 
-  constructor() { }
+
+  constructor(private block:VendorServiceService) { }
+ 
+  vendorUnblock?:Vendors;
 
   ngOnInit(): void {
   }
-
+  onClick(vendor:Vendors)
+  {
+    this.vendorArr.emit(vendor);
+  }
+  passToBlock(vendor:Vendors)
+  {
+   // console.log("Blocking "+ vendor.name)
+    this.block.sendToBlock(vendor);
+  }
 }
