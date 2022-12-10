@@ -1,1 +1,19 @@
-<p>active vendor</p>
+<p>Active Vendor</p>
+<table>
+   
+    <tr>
+    <th>First Name</th>
+    <th>Age</th>
+    <th>City</th>
+    <th>Block</th>
+    </tr>
+    <ng-container *ngFor="let v of vendor">
+        <tr>
+            <td>{{v.name}} </td>
+            <td> {{v.age}} </td>
+            <td> {{v.city}} </td> 
+            <button class="button" type="button" (click)="onClick(v);passToBlock(v)">Block</button> 
+        </tr>
+    </ng-container>
+</table>
+       

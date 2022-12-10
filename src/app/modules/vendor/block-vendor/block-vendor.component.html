@@ -1,1 +1,19 @@
 <p>block-vendor works!</p>
+<table>
+    <tr>
+    <th>First Name</th>
+    <th>Age</th>
+    <th>City</th>
+    <th>Block</th>
+    </tr>
+        <tr>
+            <!-- <tr *ngIf="blockedVendorList"> -->
+            <tr *ngFor=" let vendorBlock of blockedVendorList">
+                <td>{{vendorBlock.name}} </td>
+                <td> {{vendorBlock.age}} </td>
+                <td> {{vendorBlock.city}} </td> 
+                <button class="button" type="button" (click)="unblocked(vendorBlock)">Unblock</button> 
+            </tr>
+        </table>
+        
+        
